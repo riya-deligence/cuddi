@@ -1,0 +1,200 @@
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Gellix";
+  margin: 23rem 19rem 20rem 10rem;
+}
+.divBox {
+  padding: 1rem;
+  box-shadow: 0 0 10px 0 rgba(191, 173, 173, 0.25);
+
+  background-color: white;
+  display: flex;
+  margin-left: auto;
+  margin-right: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 40rem;
+  height: 30rem;
+  cursor: pointer;
+  font-size: 20px;
+}
+.imgDiv {
+  margin-left: 15rem;
+  width: 60%;
+  /* height: 40%; */
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 27px auto;
+  position: relative;
+  color: #5c5757;
+  font-size: 22px;
+}
+
+.checkbox_title {
+  color: black;
+  font-weight: 500;
+}
+
+.btn {
+  display: flex !important;
+  justify-content: center !important ;
+  border-radius: 40px !important;
+  width: 25rem;
+}
+.btn_mobile {
+  width: 58% !important;
+
+  margin: 27px auto !important;
+  position: relative !important;
+  height: 50px !important;
+  border-radius: 40px !important;
+  background-color: red !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+  color: white !important;
+  text-transform: inherit !important;
+}
+
+.text {
+  size: 4px;
+}
+/* .phoneInput{
+  width: 100%;
+  border: none;
+  background-color: transparent;
+} */
+.condition_text {
+  display: flex;
+  justify-content: space-between;
+  color: #040404;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 29px 57px;
+}
+.toast {
+  width: 800px !important;
+}
+.intro p {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-stretch: expanded;
+  color: rgb(39, 34, 34);
+}
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+.verify_heading {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: rgb(38, 37, 37);
+  font-stretch: expanded;
+  margin: 0;
+}
+.verify_text {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  color: rgb(120, 118, 118);
+  font-stretch: expanded;
+  margin-top: 0px;
+}
+.verify_number {
+  color: red;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 19px;
+}
+.resend_code {
+  color: rgb(63, 151, 63);
+}
+
+.content_varify {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  color: #938e8e;
+}
+.image_verify {
+  width: 580px;
+}
+.btn_login {
+  width: 70% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 27px auto !important;
+  position: relative !important;
+  height: 50px !important;
+  border-radius: 40px !important;
+  background-color: red !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+  color: white !important;
+  text-transform: inherit !important;
+}
+.btn_login:disabled,
+.btn_login:disabled:hover,
+.btn_login:disabled:active {
+  background-color: #ccc;
+  color: #292929;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+.input-container {
+  margin-top: 50px;
+  display: flex;
+  width: 90%;
+  /* margin-bottom: 50px; */
+}
+.input-field {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+  font-size: 25px;
+  border-radius: 15px;
+}
+.dialpad_icon {
+  right: 60px;
+  position: relative;
+  padding: 10px;
+  min-width: 50px;
+  text-align: center;
+}
+.abc{
+  /* padding-left: 30px; */
+  margin-left: 20px;
+  flex: 1 1;
+  border: none;
+  font-size: 20px;
+  color: rgb(160, 157, 157);
+  min-width: 0;
+  height: 30px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid;
+  border-color: red;
+}
+.abc:focus-visible {
+  border: none;
+outline:none;
+  border-bottom: 3px solid;
+  border-color: red;
+}
+
+
+.abc .PhoneInputCountrySelectArrow{
+  display:none
+}
