@@ -35,6 +35,7 @@ function Home() {
       const provider = new FacebookAuthProvider();
       signInWithRedirect(Auth, provider)
         .then((res) => {
+          navigation("/refer_a_friend")
           console.log(res);
         })
         .catch((err) => {
@@ -51,7 +52,7 @@ function Home() {
       }, 5000);
       toastNotification();
     } else {
-      navigation("/login/mobile");
+      navigation("/refer_a_friend");
     }
   };
 
@@ -106,14 +107,14 @@ function Home() {
             <div>
               I have read and accept the
               <Link
-                to="/term/use"
+                to="/term_use"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <span className="checkbox_title"> Term and Conditions</span>
               </Link>
               <span> and </span>
               <Link
-                to="/privacy/policy"
+                to="/privacy_policy"
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <span className="checkbox_title">Privacy Policy.</span>

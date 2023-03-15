@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { selectUser } from "../Store/UserSlice";
 import DialpadIcon from "@mui/icons-material/Dialpad";
-import { ResetTvOutlined } from "@mui/icons-material";
+
 
 function VerifyScreen() {
   const user = useSelector(selectUser);

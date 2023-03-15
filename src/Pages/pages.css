@@ -105,7 +105,6 @@
 }
 .verify_text {
   align-items: center;
-  justify-content: center;
   display: flex;
   color: rgb(120, 118, 118);
   font-stretch: expanded;
@@ -167,6 +166,20 @@
   font-size: 25px;
   border-radius: 15px;
 }
+.input-refer{
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  /* outline: none; */
+  font-size: 18px;
+  border:none;
+  border-bottom:1px solid #777373;
+}
+.input-refer:focus-visible{
+  border:none;
+  outline: none;
+  border-bottom:1px solid #777373;
+}
 .dialpad_icon {
   right: 60px;
   position: relative;
@@ -197,4 +210,17 @@ outline:none;
 
 .abc .PhoneInputCountrySelectArrow{
   display:none
+}
+.terms{
+  margin: auto;
+ background-color: white;
+  width:50%;
+  font-family: "Gellix";
+  font-stretch: expanded;
+}
+
+.terms p{
+  color:#5c5757;
+  font-size: 21px;
+  font-weight:300;
 }
