@@ -27,7 +27,17 @@ export const AuthContextProvider = ({ children }) => {
 }, Auth);
     recaptchaVerifier.render();
 
-    return signInWithPhoneNumber(Auth, number, recaptchaVerifier);
+    return signInWithPhoneNumber(Auth, number, recaptchaVerifier)
+    .then((confirmationResult) => {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      window.confirmationResult = confirmationResult;
+      // ...
+    }).catch((error) => {
+      // Error; SMS not sent
+      // ...
+    });
+;
   };
 
   useEffect(() => {

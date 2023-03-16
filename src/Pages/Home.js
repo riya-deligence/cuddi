@@ -26,8 +26,9 @@ function Home() {
 
   const facebookButtonClick = (response) => {
     if (!isChecked) {
-      // toastNotification();
+     
       setHasError(true);
+      //to hide the error div after few seconds.
       setTimeout(() => {
         setHasError(false);
       }, 5000);
@@ -47,22 +48,20 @@ function Home() {
   const handleButtonClick = () => {
     if (!isChecked) {
       setHasError(true);
+      //to hide the error div after few seconds.
+
       setTimeout(() => {
         setHasError(false);
       }, 5000);
-      toastNotification();
+     
     } else {
-      navigation("/refer_a_friend");
+      navigation("/login/mobile");
     }
   };
 
-  const CustomToast = () => {
-    return <div>Please accept our Terms & Conditions and Privacy Policy.</div>;
-  };
+  
 
-  const toastNotification = () => {
-    toast.error(<CustomToast />);
-  };
+
 
   return (
     <>
@@ -123,20 +122,7 @@ function Home() {
           </label>
         </div>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={10000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        color="red"
-        theme="colored"
-        width="1000px"
-      />
+    
       
       {hasError && (
         <Error message="Please accept our Terms & Conditions and Privacy Policy." />

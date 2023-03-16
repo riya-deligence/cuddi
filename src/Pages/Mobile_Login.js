@@ -10,9 +10,8 @@ import Input, {
   getCountryCallingCode,
 } from "react-phone-number-input/input";
 import en from "react-phone-number-input/locale/en";
-// import PhoneInput from "react-phone-input-2";
-//import "react-phone-input-2/lib/style.css";
 import Button from "@mui/material/Button";
+import Error from "../Components/ErrorMessage/Error";
 import img from "../Images/verify_img.png";
 import { UserContext } from "../Context/AuthContext";
 import Footer from "../Components/Footer/Footer";
@@ -22,9 +21,7 @@ import { login } from "../Store/UserSlice";
 
 const MobileLogin = () => {
   const [value, setValue] = useState("");
-  //  const [result, setResult] = useState("");
-
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
   const navigation = useNavigate();
   const [error, setError] = useState("");
   const [country, setCountry] = useState("IN");
@@ -36,24 +33,31 @@ const MobileLogin = () => {
     if (value === "" || value === undefined) {
       return setError("Please enter a valid phone number!");
     }
+
     try {
+      //storing number in redux store
       dispatch(
         login({
           number: value,
         })
       );
       const response = await phoneSignIn(value);
-      console.log(response);
-      //  setResult((prevState)=>prevState=response);
-      navigation("/login/mobile/verify_screen", {
-        state: { result: response },
-      });
+      
+    
+      navigation("/login/mobile/verify_screen");
     } catch (err) {
       setError(err.message);
+      //to hide the error div after few seconds.
+
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
   };
+  // to check if number is valid or not 
   const isValid = isValidPhoneNumber(value);
 
+  // for customised select button and input .
   const CountrySelect = ({ value, onChange, labels, ...rest }) => (
     <select
       aria-label="Phone number country"
@@ -127,45 +131,18 @@ const MobileLogin = () => {
               </div>
               +{getCountryCallingCode(country)}
               <Input
-                //international
-                // countryCallingCodeEditable={false}
-                defaultCountry="IN"
+             defaultCountry={country}
                 value={value}
                 placeholder="Enter your number"
                 onChange={setValue}
                 className="abc"
               />
             </div>
-            {/* <PhoneInput
-              international
-              countryCallingCodeEditable={false}
-              defaultCountry="IN"
-              value={value}
-              onChange={setValue}
-              className="abc"
-              
-            /> */}
+           
             <br />
             <br />
             <br />
-            {/* <p className="verify_text">{value.length}/10</p> */}
-            {/* country={"in"}
-             inputStyle={{
-              background: "transparent",
-              border: "none",
-              fontSize: "20px",
-              color: "gray",
-              placeholder: "Enter your phone number",
-              width: "100%",
-
-              borderWidth: "70%",
-              borderBottom: "2px solid red",
-            }}
-            buttonStyle={{
-              background: "transparent",
-              border: "none",
-            }} */}
-            {/* <div id="recaptcha-container" /> */}
+            
             <Button
               // variant="contained"
               disabled={!isValid}
@@ -179,6 +156,9 @@ const MobileLogin = () => {
           <p>*Messages rate may apply.</p>
         </div>
       </div>
+      {error!=="" && (
+        <Error message={error} />
+      )}
       <Footer />
     </>
   );

@@ -5,29 +5,43 @@ import { useNavigate, useLocation } from "react-router-dom";
 import img from "../Images/verify_img_a.png";
 import Footer from "../Components/Footer/Footer";
 import { Button } from "@mui/material";
+import Error from "../Components/ErrorMessage/Error";
 import { useSelector } from "react-redux";
 import { selectUser } from "../Store/UserSlice";
 import DialpadIcon from "@mui/icons-material/Dialpad";
-
 
 function VerifyScreen() {
   const user = useSelector(selectUser);
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  // const location = useLocation();
-  // console.log(location.state.result)
- // const response=location.state.result
+
   const verifyOtp = async (e) => {
     setError("");
     if (otp === "" || otp === null) return;
     try {
-     // await .confirm(otp);
-      // navigate("/");
-    }
-     catch (err) {
+      window.confirmationResult
+        .confirm(otp)
+        .then((result) => {
+          // User signed in successfully.
+          // const user = result.user;
+          navigate("/refer_a_friend");
+          console.log("success");
+        })
+        .catch((error) => {
+          // User couldn't sign in (bad verification code?)
+          setError(error.message);
+          //to hide the error div after few seconds.
+
+          setTimeout(() => {
+            setError("");
+          }, 5000);
+        });
+    } catch (err) {
       setError(err.message);
-      console.log(err.message);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
   };
   return (
@@ -51,6 +65,7 @@ function VerifyScreen() {
             <input
               className="input-field"
               type="text"
+              maxLength={6}
               onChange={(e) => setOtp(e.target.value)}
             />
             <span className="dialpad_icon">
@@ -61,8 +76,8 @@ function VerifyScreen() {
           <p style={{ fontSize: "17px" }} className="verify_text">
             {otp.length}/6
           </p>
-          <br/>
-          <br/>
+          <br />
+          <br />
           <p className="verify_text">
             Didn't receive the code?{" "}
             <Link to="/login/mobile" style={{ textDecoration: "none" }}>
@@ -74,6 +89,7 @@ function VerifyScreen() {
           </Button>
         </div>
       </div>
+      {error !== "" && <Error message={error} />}
       <Footer />
     </>
   );
