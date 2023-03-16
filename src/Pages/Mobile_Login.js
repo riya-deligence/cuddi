@@ -88,12 +88,12 @@ const MobileLogin = () => {
         style={{ marginLeft: "10rem", marginTop: "20rem" }}
       >
         <div className="imgDiv">
-          <div className="image_verify">
+          <div className="verifyImage">
             <img width="100%" src={img} alt="" />
           </div>
           <div style={{ width: "580px" }}>
-            <h1 className="verify_heading">Verify your number</h1>
-            <span className="content_varify">
+            <h1 className="verifyHeading">Verify your number</h1>
+            <span className="verifyContent">
               Please enter your mobile number to receive a verification code.
             </span>
           </div>
@@ -148,7 +148,7 @@ const MobileLogin = () => {
               disabled={!isValid}
               onClick={LoginWithOtp}
               id="sign-in-phone"
-              className={isValid ? "btn_login" : ""}
+              className={isValid ? "btnLogin" : ""}
             >
               <ArrowForwardIcon fontSize="large" /> Continue
             </Button>

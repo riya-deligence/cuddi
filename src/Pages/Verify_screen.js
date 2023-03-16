@@ -51,40 +51,40 @@ function VerifyScreen() {
         style={{ marginLeft: "10rem", marginTop: "20rem" }}
       >
         <div className="imgDiv">
-          <div className="image_verify">
+          <div className="verifyImage">
             <img width="100%" src={img} alt="" />
           </div>
         </div>
 
         <div className="divBox">
-          <p className="verify_text">
+          <p className="verifyText">
             Enter the code sent to
-            <span className="verify_number">{user.number}</span>
+            <span className="verifyNumber">{user.number}</span>
           </p>
-          <div className="input-container">
+          <div className="inputContainer">
             <input
-              className="input-field"
+              className="inputField"
               type="text"
               maxLength={6}
               onChange={(e) => setOtp(e.target.value)}
             />
-            <span className="dialpad_icon">
+            <span className="dialpadIcon">
               {" "}
               <DialpadIcon fontSize="large" />
             </span>
           </div>
-          <p style={{ fontSize: "17px" }} className="verify_text">
+          <p style={{ fontSize: "17px" }} className="verifyText">
             {otp.length}/6
           </p>
           <br />
           <br />
-          <p className="verify_text">
+          <p className="verifyText">
             Didn't receive the code?{" "}
             <Link to="/login/mobile" style={{ textDecoration: "none" }}>
-              <span className="resend_code">Resend</span>
+              <span className="resendCode">Resend</span>
             </Link>
           </p>
-          <Button className="btn_login" onClick={verifyOtp}>
+          <Button className="btnLogin" onClick={verifyOtp}>
             verify
           </Button>
         </div>

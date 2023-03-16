@@ -85,7 +85,7 @@ function Home() {
           </Button>
 
           <Button
-            className="btn btn_mobile"
+            className="btn btnMobile"
             onClick={() => handleButtonClick()}
           >
             <LocalPhoneIcon fontSize="large" />
@@ -109,14 +109,14 @@ function Home() {
                 to="/term_use"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <span className="checkbox_title"> Term and Conditions</span>
+                <span className="checkboxTitle"> Term and Conditions</span>
               </Link>
               <span> and </span>
               <Link
                 to="/privacy_policy"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <span className="checkbox_title">Privacy Policy.</span>
+                <span className="checkboxTitle">Privacy Policy.</span>
               </Link>
             </div>
           </label>

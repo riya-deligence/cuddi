@@ -38,7 +38,7 @@
   font-size: 22px;
 }
 
-.checkbox_title {
+.checkboxTitle {
   color: black;
   font-weight: 500;
 }
@@ -49,7 +49,7 @@
   border-radius: 40px !important;
   width: 25rem;
 }
-.btn_mobile {
+.btnMobile {
   width: 58% !important;
 
   margin: 27px auto !important;
@@ -71,31 +71,23 @@
   border: none;
   background-color: transparent;
 } */
-.condition_text {
+/* .condition_text {
   display: flex;
   justify-content: space-between;
   color: #040404;
   font-size: 20px;
   font-weight: bold;
   margin: 29px 57px;
-}
-.toast {
-  width: 800px !important;
-}
+} */
+
 .intro p {
   font-size: 1.8rem;
   font-weight: 600;
   font-stretch: expanded;
   color: rgb(39, 34, 34);
 }
-.text-left {
-  text-align: left;
-}
 
-.text-right {
-  text-align: right;
-}
-.verify_heading {
+.verifyHeading {
   align-items: center;
   justify-content: center;
   display: flex;
@@ -103,34 +95,34 @@
   font-stretch: expanded;
   margin: 0;
 }
-.verify_text {
+.verifyText {
   align-items: center;
   display: flex;
   color: rgb(120, 118, 118);
   font-stretch: expanded;
   margin-top: 0px;
 }
-.verify_number {
+.verifyNumber {
   color: red;
   font-weight: 600;
   font-style: italic;
   font-size: 19px;
 }
-.resend_code {
+.resendCode {
   color: rgb(63, 151, 63);
 }
 
-.content_varify {
+.verifyContent {
   display: flex;
   font-size: 20px;
   justify-content: center;
   align-items: center;
   color: #938e8e;
 }
-.image_verify {
+.verifyImage {
   width: 580px;
 }
-.btn_login {
+.btnLogin {
   width: 70% !important;
   display: flex !important;
   justify-content: center !important;
@@ -144,21 +136,21 @@
   color: white !important;
   text-transform: inherit !important;
 }
-.btn_login:disabled,
-.btn_login:disabled:hover,
-.btn_login:disabled:active {
+.btnLogin:disabled,
+.btnLogin:disabled:hover,
+.btnLogin:disabled:active {
   background-color: #ccc;
   color: #292929;
   border-color: #ccc;
   cursor: not-allowed;
 }
-.input-container {
+.inputContainer {
   margin-top: 50px;
   display: flex;
   width: 90%;
   /* margin-bottom: 50px; */
 }
-.input-field {
+.inputField {
   width: 100%;
   height: 40px;
   padding: 10px;
@@ -166,7 +158,7 @@
   font-size: 25px;
   border-radius: 15px;
 }
-.input-refer{
+.inputRefer{
   width: 100%;
   height: 40px;
   padding: 10px;
@@ -175,12 +167,12 @@
   border:none;
   border-bottom:1px solid #777373;
 }
-.input-refer:focus-visible{
+.inputRefer:focus-visible{
   border:none;
   outline: none;
   border-bottom:1px solid #777373;
 }
-.dialpad_icon {
+.dialpadIcon {
   right: 60px;
   position: relative;
   padding: 10px;
