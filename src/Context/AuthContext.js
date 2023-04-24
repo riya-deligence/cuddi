@@ -12,6 +12,7 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [userId, setUserId] = useState(null);
+  const [uid, setUid]=useState(null)
   const navigation = useNavigate()
   const logout = () => {
     return signOut(Auth);
@@ -34,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
       window.confirmationResult = confirmationResult;
       // ...
     }).catch((error) => {
+      console.log(error)
       // Error; SMS not sent
       // ...
     });
@@ -43,7 +45,8 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(Auth, (currentUser) => {
       setUser(currentUser);
-      setUserId(currentUser.uid);
+      currentUser.getIdToken().then((result)=>setUserId(result));
+      setUid(currentUser.uid)
     });
     return () => {
       unsubscribe();
@@ -51,7 +54,7 @@ export const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ logout, phoneSignIn, user, userId }}>
+    <AuthContext.Provider value={{ logout, phoneSignIn, user, userId,uid }}>
       {children}
     </AuthContext.Provider>
   );

@@ -9,14 +9,18 @@ import Error from "../Components/ErrorMessage/Error";
 import { useSelector } from "react-redux";
 import { selectUser } from "../Store/UserSlice";
 import DialpadIcon from "@mui/icons-material/Dialpad";
+import { UserContext } from "../Context/AuthContext";
 
 function VerifyScreen() {
+  document.body.style.background = "whitesmoke";
+
   const user = useSelector(selectUser);
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
+  const { userId } = UserContext();
   const verifyOtp = async (e) => {
+    
     setError("");
     if (otp === "" || otp === null) return;
     try {
@@ -27,6 +31,7 @@ function VerifyScreen() {
           // const user = result.user;
           navigate("/refer_a_friend");
           console.log("success");
+          console.log(userId)
         })
         .catch((error) => {
           // User couldn't sign in (bad verification code?)

@@ -9,6 +9,7 @@ import Input, {
   getCountries,
   getCountryCallingCode,
 } from "react-phone-number-input/input";
+import Loader from "../Components/LoadingSpinner/LoadingSpinner";
 import en from "react-phone-number-input/locale/en";
 import Button from "@mui/material/Button";
 import Error from "../Components/ErrorMessage/Error";
@@ -20,21 +21,25 @@ import { isValidPhoneNumber } from "react-phone-number-input";
 import { login } from "../Store/UserSlice";
 
 const MobileLogin = () => {
+ // document.body.style.background = "whitesmoke";
+
   const [value, setValue] = useState("");
  const dispatch = useDispatch();
   const navigation = useNavigate();
   const [error, setError] = useState("");
   const [country, setCountry] = useState("IN");
-
+const [isLoading,setIsLoading]=useState(false)
   const { phoneSignIn } = UserContext();
 
   const LoginWithOtp = async () => {
     setError("");
+    // setIsLoading(true)
     if (value === "" || value === undefined) {
       return setError("Please enter a valid phone number!");
     }
 
     try {
+     
       //storing number in redux store
       dispatch(
         login({
@@ -42,8 +47,7 @@ const MobileLogin = () => {
         })
       );
       const response = await phoneSignIn(value);
-      
-    
+      console.log(response)
       navigation("/login/mobile/verify_screen");
     } catch (err) {
       setError(err.message);
@@ -53,6 +57,8 @@ const MobileLogin = () => {
         setError("");
       }, 5000);
     }
+   // setIsLoading(false)
+
   };
   // to check if number is valid or not 
   const isValid = isValidPhoneNumber(value);
@@ -119,10 +125,10 @@ const MobileLogin = () => {
                 style={{ height:"28px",
                 width:"42px"}}
                   aria-hidden="true"
-                  class="PhoneInputCountryIcon PhoneInputCountryIcon--border"
+                  className="PhoneInputCountryIcon PhoneInputCountryIcon--border"
                 >
                   <img
-                    class="PhoneInputCountryIconImg"
+                    className="PhoneInputCountryIconImg"
                     alt={country}
                    
                     src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`}
@@ -142,16 +148,16 @@ const MobileLogin = () => {
             <br />
             <br />
             <br />
+            {isLoading?<Loader/>:
+            <button
             
-            <Button
-              // variant="contained"
               disabled={!isValid}
               onClick={LoginWithOtp}
               id="sign-in-phone"
-              className={isValid ? "btnLogin" : ""}
+              className= "btnLogin"
             >
-              <ArrowForwardIcon fontSize="large" /> Continue
-            </Button>
+              <ArrowForwardIcon fontSize="medium"  /> Continue
+            </button>}
           </div>
           <p>*Messages rate may apply.</p>
         </div>

@@ -4,8 +4,8 @@ import "./pages.css";
 import { signInWithRedirect, FacebookAuthProvider } from "firebase/auth";
 import { Auth } from "../firebase";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 import Footer from "../Components/Footer/Footer";
 import logo from "../Images/logo.png";
 import Error from "../Components/ErrorMessage/Error";
@@ -17,6 +17,7 @@ import { FacebookLoginButton } from "react-social-login-buttons";
 import { grey, red } from "@mui/material/colors";
 
 function Home() {
+  document.body.style.background = "whitesmoke";
   const [isChecked, setIsChecked] = useState(false);
   const [hasError, setHasError] = useState(false);
   const navigation = useNavigate();
@@ -24,7 +25,7 @@ function Home() {
     setIsChecked(e.target.checked);
   };
 
-  const facebookButtonClick = (response) => {
+  const facebookButtonClick = async(response) => {
     if (!isChecked) {
      
       setHasError(true);
@@ -34,7 +35,7 @@ function Home() {
       }, 5000);
     } else {
       const provider = new FacebookAuthProvider();
-      signInWithRedirect(Auth, provider)
+     await signInWithRedirect(Auth, provider)
         .then((res) => {
           navigation("/refer_a_friend")
           console.log(res);
@@ -42,6 +43,7 @@ function Home() {
         .catch((err) => {
           console.log(err.message);
         });
+         navigation("/refer_a_friend")  
     }
   };
 
@@ -107,9 +109,10 @@ function Home() {
               I have read and accept the
               <Link
                 to="/term_use"
+              
                 style={{ textDecoration: "none", color: "black" }}
               >
-                <span className="checkboxTitle"> Term and Conditions</span>
+                <span className="checkboxTitle"> Term & Conditions</span>
               </Link>
               <span> and </span>
               <Link
